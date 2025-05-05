@@ -38,12 +38,12 @@ const servicesSummary = [
   },
   {
     label: "Reviews",
-    count: 199,
+    count: 130,
     logo: successReview,
   },
   {
     label: "Staffs",
-    count: 199,
+    count: 309,
     logo: successStaffs,
   },
 ];

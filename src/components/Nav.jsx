@@ -8,7 +8,7 @@ import Brand from "./Brand";
 const Nav = () => {
   const [open, setOpen] = useState(false);
   return (
-    <header className="p-4  max-container">
+    <header className="p-4  max-container sticky z-10 top-2">
       <nav className="flex-between border p-2 rounded-xl sticky z-[1000]  bg-gray-200">
         <Brand />
         {/* desktop device menu */}
