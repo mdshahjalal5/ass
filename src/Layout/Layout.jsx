@@ -7,7 +7,7 @@ const Layout = () => {
   return (
     <>
       <Nav />
-      <div className="max-container ">
+      <div className="max-container mt-10 ">
         <Slider />
       </div>
 

@@ -9,7 +9,7 @@ import { Link } from "react-router";
 import { useMediaQuery } from "react-responsive";
 
 const Slider = () => {
-  const mobile = useMediaQuery({ maxWidth: 820 });
+  const mobile = useMediaQuery({ maxWidth: 1220 });
   return (
     <Swiper
       modules={[Navigation, Pagination, Autoplay]}

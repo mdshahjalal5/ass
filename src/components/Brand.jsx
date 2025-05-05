@@ -8,8 +8,8 @@ const Brand = ({ className }) => {
         <img src={logo} width={35} />
         <h1 className=" max-sm:text-xl text-3xl font-semibold">
           <Link to="/">
-            <span className="font-courgette text-skyy">Medical</span>
-            <span className="font-kaushan text-orangy">Hub</span>
+            <span className="font-courgette text-sky-400">Subscription</span>
+            <span className="font-kaushan text-purple-400">Box</span>
           </Link>
         </h1>
       </div>
