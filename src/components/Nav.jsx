@@ -4,6 +4,7 @@ import { AlignJustify } from "lucide-react";
 import { useState } from "react";
 import Menu from "./Menu";
 import Brand from "./Brand";
+import { Link } from "react-router";
 
 const Nav = () => {
   const [open, setOpen] = useState(false);
@@ -18,7 +19,9 @@ const Nav = () => {
 
         <div className="relative">
           <div className="max-sm:hidden">
-            <Button label={"Emergency"} className={"text-white"} />
+            <Link to="/auth/login">
+              <Button label={"Login"} className={"text-white"} />
+            </Link>
           </div>
           <div onClick={() => setOpen(!open)} className="sm:hidden border">
             <button>

@@ -6,6 +6,10 @@ import Doctors from "../components/Doctors";
 import DoctorDetails from "../components/DoctorDetails";
 import Booked from "../components/Booked";
 import Blog from "../components/Blog";
+import Login from "../pages/Login";
+import RegisterPage from "../pages/Register";
+import Nav from "../components/Nav";
+import AuthLayout from "../Layout/AuthLayout";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +34,28 @@ export const router = createBrowserRouter([
         path: "/blogs",
         element: <Blog />,
       },
+      {
+        path: "login",
+        Component: Login,
+      },
     ],
+  },
+  {
+    path: "/auth",
+    element: <AuthLayout />,
+    children: [
+      {
+        path: "login",
+        Component: Login,
+      },
+      {
+        path: "register",
+        Component: RegisterPage,
+      },
+    ],
+  },
+  {
+    path: "/register",
+    Component: RegisterPage,
   },
 ]);
