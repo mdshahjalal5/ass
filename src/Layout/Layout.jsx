@@ -6,10 +6,6 @@ const Layout = () => {
   return (
     <>
       <Nav />
-      <div className="max-container mt-10 ">
-        <Slider />
-      </div>
-
       <main className="min-h-[60vh] max-container">
         <Outlet />
       </main>

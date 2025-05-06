@@ -10,7 +10,7 @@ export default function NewsletterSubscription() {
           <input
             type="email"
             placeholder="Enter your email"
-            className="grow placeholder:text-gray-500"
+            className="placeholder:text-gray-500"
             required
           />
         </label>

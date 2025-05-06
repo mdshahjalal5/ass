@@ -11,6 +11,7 @@ import RegisterPage from "../pages/Register";
 import Nav from "../components/Nav";
 import AuthLayout from "../Layout/AuthLayout";
 import TermsAndConditions from "../pages/TermsCondintion";
+import ServiceDetail from "../pages/ServiceDetails";
 
 export const router = createBrowserRouter([
   {
@@ -23,17 +24,9 @@ export const router = createBrowserRouter([
         element: <App />,
       },
       {
-        path: "/my-bookings",
-        element: <Booked />,
-      },
-      {
-        path: "/doctor/:id",
-        loader: () => fetch("data.json"),
-        element: <DoctorDetails />,
-      },
-      {
-        path: "/blogs",
-        element: <Blog />,
+        path: "/services/:id",
+        loader: () => fetch("/data2.json"),
+        element: <ServiceDetail />,
       },
       {
         path: "terms",

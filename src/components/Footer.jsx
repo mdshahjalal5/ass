@@ -7,7 +7,7 @@ import NewsletterSubscription from "./newsLetter";
 
 const Footer = () => {
   return (
-    <footer className="max-container space-y-4  grid lg:grid-cols-3 bg-gray-700  p-9 md:p-16  gap-9 my-10">
+    <footer className="max-container space-y-4  grid lg:grid-cols-3 bg-gray-700  p-9  md:p-16  gap-9 mt-10">
       <div>
         <Brand className={"justify-cente"} />
         {/* <h2 className="hide">Subscribe to our newsletter</h2> */}

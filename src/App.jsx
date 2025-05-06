@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Doctors from "./components/Doctors";
 import ServiceSummary from "./components/ServiceSummary";
 import Header from "./components/Header";
+import Home from "./components/Home";
 
 const App = () => {
   const [doctors, setDoctors] = useState([]);
@@ -19,9 +20,7 @@ const App = () => {
 
   return (
     <section className="mt-10">
-      <Header />
-      <Doctors doctors={doctors} />
-      <ServiceSummary />
+      <Home />
     </section>
   );
 };

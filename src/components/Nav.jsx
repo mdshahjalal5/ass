@@ -14,16 +14,16 @@ const Nav = () => {
         <Brand />
         {/* desktop device menu */}
         <Menu
-          className={`max-sm:hidden flex gap-5 text-gray-600 font-semibold text-lg`}
+          className={`max-md:hidden flex gap-5 text-gray-600 font-semibold text-lg`}
         />
 
         <div className="relative">
-          <div className="max-sm:hidden">
+          <div className="max-md:hidden">
             <Link to="/auth/login">
               <Button label={"Login"} className={"text-white"} />
             </Link>
           </div>
-          <div onClick={() => setOpen(!open)} className="sm:hidden ">
+          <div onClick={() => setOpen(!open)} className="md:hidden ">
             <button>
               {/* <AlignJustify /> */}
               {open ? (
@@ -34,7 +34,7 @@ const Nav = () => {
             </button>
           </div>
           <div
-            className={`bg-gray-300  rounded-lg absolute -left-[124px] sm:hidden ${open ? "" : "hidden"}`}
+            className={`bg-gray-300  rounded-lg absolute -left-[124px] md:hidden p-2 ${open ? "" : "hidden"}`}
           >
             {/* mobile device menu */}
             <Menu className="p-4  flex flex-col gap-1 text-gray-600 font-semibold text-lg" />
