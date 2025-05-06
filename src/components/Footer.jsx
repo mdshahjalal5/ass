@@ -3,22 +3,46 @@ import Brand from "./Brand";
 import Menu from "./Menu";
 import { Link } from "react-router-dom";
 import FooterLinks from "./FooterLinks";
+import NewsletterSubscription from "./newsLetter";
 
 const Footer = () => {
   return (
-    <footer className="space-y-4 py-4 max-sm:justify-start flex flex-col max-sm:items-start max-sm:p-2 mt-10">
-      <Brand className={"justify-center"} />
-      <div className="flex-center">
+    <footer className="max-container space-y-4  grid lg:grid-cols-3 bg-gray-700  p-9 md:p-16  gap-9 my-10">
+      <div>
+        <Brand className={"justify-cente"} />
+        {/* <h2 className="hide">Subscribe to our newsletter</h2> */}
+
+        <p className="text-gray-400 my-4">
+          Innovating tomorrow, one smart tech box at a time.
+        </p>
+        <FooterLinks />
+      </div>
+      <div>
         <Menu
-          className={`flex gap-5 text-gray-600 font-semibold text-lg max-sm:flex-col max-sm:gap-[1px]`}
+          className={`flex flex-col gap- text-gray-400 font-semibold text-lg max-sm:flex-col max-sm:gap-[1px]`}
           isExternal={true}
         />
+        <div className="flex flex-col *:text-gray-400">
+          <Link
+            to="/terms"
+            className="text-gray-200 font-semibold text-lg max-sm:flex-col max-sm:gap-[1px]"
+          >
+            Terms & Conditions
+          </Link>
+          <Link
+            to="/terms"
+            className="text-gray-200 font-semibold text-lg max-sm:flex-col max-sm:gap-[1px]"
+          >
+            Privacy Policy
+          </Link>
+        </div>
       </div>
-      <hr className="border border-gray-300 w-5/6 my-3 mx-auto mb-7" />
 
       {/* icons */}
 
-      <FooterLinks />
+      <div>
+        <NewsletterSubscription />
+      </div>
     </footer>
   );
 };

@@ -1,7 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Slider from "../components/Slider";
 import { Nav, Footer } from "../components/Index";
-import ExampleComponent from "../components/media";
 
 const Layout = () => {
   return (
@@ -20,5 +19,3 @@ const Layout = () => {
 };
 
 export default Layout;
-
-// 28 date xm

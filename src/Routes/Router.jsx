@@ -10,6 +10,7 @@ import Login from "../pages/Login";
 import RegisterPage from "../pages/Register";
 import Nav from "../components/Nav";
 import AuthLayout from "../Layout/AuthLayout";
+import TermsAndConditions from "../pages/TermsCondintion";
 
 export const router = createBrowserRouter([
   {
@@ -35,8 +36,8 @@ export const router = createBrowserRouter([
         element: <Blog />,
       },
       {
-        path: "login",
-        Component: Login,
+        path: "terms",
+        Component: TermsAndConditions,
       },
     ],
   },

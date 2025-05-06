@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link, Links } from "react-router";
 
 const LoginPage = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-base-200">
       <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
         <h2 className="text-3xl font-bold text-center text-primary mb-6">
           Login
@@ -60,12 +60,12 @@ const LoginPage = () => {
                 className="checkbox checkbox-primary"
               />
               <label htmlFor="remember" className="ml-2 text-sm">
-                Remember Me
+                Accept our{" "}
+                <Link className="underline" to="/terms">
+                  terms and conditions
+                </Link>
               </label>
             </div>
-            <a href="#" className="text-sm text-primary">
-              Forgot Password?
-            </a>
           </div>
 
           {/* Submit Button */}

@@ -3,7 +3,7 @@ import Nav from "../components/Nav";
 
 const AuthLayout = () => {
   return (
-    <div>
+    <div className="max-container">
       <Nav />
       <Outlet />
     </div>

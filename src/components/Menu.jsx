@@ -3,7 +3,7 @@ import { links } from "../constant";
 
 const Menu = ({ className, isExternal }) => {
   return (
-    <ul className={className}>
+    <ul className={`${className}`}>
       {links.map((link) =>
         isExternal ? (
           <Link key={link.label} to={link.path}>

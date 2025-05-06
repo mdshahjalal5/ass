@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const FooterLinks = () => {
   return (
-    <div className="flex gap-7 justify-center max-sm:gap-3 ">
+    <div className="flex gap-3 justify-cente max-sm:gap-3 ">
       <Link
         to="https://www.youtube.com/@muhommodshahjalal9811"
         target="_blank"

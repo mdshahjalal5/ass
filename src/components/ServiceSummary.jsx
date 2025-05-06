@@ -4,7 +4,7 @@ import { servicesSummary } from "../constant";
 
 const ServiceSummary = () => {
   return (
-    <div className="grid justify-items-center md:grid-cols-4 grid-cols-2 gap-5 mt-20 borde order-red-400 ">
+    <div className="grid justify-items-center md:grid-cols-4 grid-cols-2 gap-5">
       {servicesSummary.map((item) => (
         <CountUp start={0} end={item.count} delay={0}>
           {({ countUpRef }) => (
