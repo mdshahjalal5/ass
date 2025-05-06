@@ -4,7 +4,7 @@ import SubscriptionServices from "./SubscriptionServices";
 const Home = () => {
   return (
     <div>
-      {/* <Slider /> */}
+      <Slider />
       <SubscriptionServices />
     </div>
   );

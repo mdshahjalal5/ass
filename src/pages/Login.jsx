@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Links } from "react-router";
+import { Link } from "react-router";
 
 const LoginPage = () => {
   return (
@@ -27,7 +27,7 @@ const LoginPage = () => {
               type="email"
               id="email"
               name="email"
-              className="input input-bordered w-full mt-2"
+              className="input input-accent w-full mt-2"
               placeholder="Enter your email"
               required
             />
@@ -45,28 +45,13 @@ const LoginPage = () => {
               type="password"
               id="password"
               name="password"
-              className="input input-bordered w-full mt-2"
+              className="input input-accent w-full mt-2"
               placeholder="Enter your password"
               required
             />
           </div>
 
           {/* Remember Me & Forgot Password */}
-          <div className="mb-6 flex justify-between items-center">
-            <div className="flex items-center">
-              <input
-                type="checkbox"
-                id="remember"
-                className="checkbox checkbox-primary"
-              />
-              <label htmlFor="remember" className="ml-2 text-sm">
-                Accept our{" "}
-                <Link className="underline" to="/terms">
-                  terms and conditions
-                </Link>
-              </label>
-            </div>
-          </div>
 
           {/* Submit Button */}
           <button
@@ -75,17 +60,25 @@ const LoginPage = () => {
           >
             Log In
           </button>
-
-          {/* Sign Up Link */}
-          <div className="mt-4 text-center">
-            <p className="text-sm">
-              Don't have an account?{" "}
-              <Link to="/auth/register" className="text-primary">
-                Sign Up
-              </Link>
-            </p>
-          </div>
         </form>
+        <button className="btn btn-primary w-full py-2 text-white mt-3">
+          Sign up with Google
+        </button>
+
+        {/* Sign Up Link */}
+        <div className="mt-4 flex justify-between">
+          <p className="text-sm">
+            Don't have an account?{" "}
+            <Link to="/auth/register" className="text-primary">
+              Sign Up
+            </Link>
+          </p>
+          <p>
+            <Link to="/auth/forgot-password" className="text-primary">
+              Forgot password?
+            </Link>
+          </p>
+        </div>
       </div>
     </div>
   );

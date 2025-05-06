@@ -27,7 +27,7 @@ const RegisterPage = () => {
               type="text"
               id="name"
               name="name"
-              className="input input-bordered w-full mt-2"
+              className="input input-info w-full mt-2"
               placeholder="John Doe"
               required
             />
@@ -45,7 +45,7 @@ const RegisterPage = () => {
               type="email"
               id="email"
               name="email"
-              className="input input-bordered w-full mt-2"
+              className="input input-info w-full mt-2"
               placeholder="your@email.com"
               required
             />
@@ -63,7 +63,7 @@ const RegisterPage = () => {
               type="password"
               id="password"
               name="password"
-              className="input input-bordered w-full mt-2"
+              className="input input-info w-full mt-2"
               placeholder="Enter a strong password"
               required
             />
@@ -81,30 +81,49 @@ const RegisterPage = () => {
               type="password"
               id="confirmPassword"
               name="confirmPassword"
-              className="input input-bordered w-full mt-2"
+              className="input input-info w-full mt-2"
               placeholder="Enter your photo url"
               required
             />
           </div>
 
+          <div className="mb-6 flex justify-between items-center">
+            <div className="flex items-center">
+              <input
+                type="checkbox"
+                id="remember"
+                className="checkbox checkbox-primary"
+              />
+              <label htmlFor="remember" className="ml-2 text-sm">
+                Accept our{" "}
+                <Link className="underline" to="/terms">
+                  terms and conditions
+                </Link>
+              </label>
+            </div>
+          </div>
           {/* Submit Button */}
+
           <button
             type="submit"
             className="btn btn-primary w-full py-2 text-white"
           >
             Register
           </button>
-
-          {/* Already have an account */}
-          <div className="mt-4 text-center">
-            <p className="text-sm">
-              Already have an account?{" "}
-              <Link to="/auth/login" className="text-primary">
-                Log In
-              </Link>
-            </p>
-          </div>
         </form>
+        <button className="btn btn-primary w-full py-2 text-white mt-3">
+          Sign up with Google
+        </button>
+
+        {/* Already have an account */}
+        <div className="mt-4 text-center">
+          <p className="text-sm">
+            Already have an account?{" "}
+            <Link to="/auth/login" className="text-primary">
+              Log In
+            </Link>
+          </p>
+        </div>
       </div>
     </div>
   );

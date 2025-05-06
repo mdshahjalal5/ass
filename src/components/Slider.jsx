@@ -1,7 +1,6 @@
-// Slider.jsx or any component file
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css"; // Required core styles
-import "swiper/css/navigation"; // Optional modules
+import "swiper/css";
+import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
