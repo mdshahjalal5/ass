@@ -21,7 +21,7 @@ const Errorpage = () => {
             className="max-w-[400px] rounded-2xl drop-shadow-2xl"
           />
           <div className="flex gap-6  w-full">
-            <div onClick={() => navigate("/")} className="flex-1 border ">
+            <div onClick={() => navigate("/")} className="flex-1 ">
               <Button
                 label={"Go Home"}
                 className={"transform  w-full text-white"}

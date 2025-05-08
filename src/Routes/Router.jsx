@@ -8,6 +8,8 @@ import AuthLayout from "../Layout/AuthLayout";
 import TermsAndConditions from "../pages/TermsCondintion";
 import ServiceDetail from "../pages/ServiceDetails";
 import ForgotPassword from "../pages/ForgotPassword";
+import MyProfile from "../pages/MyProfile";
+import UpdateProfile from "../pages/UpdateProfile";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +29,14 @@ export const router = createBrowserRouter([
       {
         path: "terms",
         Component: TermsAndConditions,
+      },
+      {
+        path: "my-profile",
+        Component: MyProfile,
+      },
+      {
+        path: "update-profile",
+        Component: UpdateProfile,
       },
     ],
   },

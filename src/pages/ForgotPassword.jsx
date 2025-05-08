@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const ForgotPassword = () => {
+  const { resetPassword } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
@@ -9,8 +12,15 @@ const ForgotPassword = () => {
 
     // Simulate sending reset email
     if (email.trim()) {
-      setMessage(`Reset link sent to ${email}`);
-      setEmail("");
+      resetPassword(email)
+        .then(() => {
+          setMessage(`Reset link sent to ${email}`);
+          setEmail("");
+        })
+        .catch((error) => {
+          console.error("Error sending reset email:", error);
+          setMessage("Failed to send reset email.");
+        });
     } else {
       setMessage("Please enter a valid email.");
     }
@@ -18,6 +28,9 @@ const ForgotPassword = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
+      <Helmet>
+        <title>Forgot Password || Subscription Box</title>
+      </Helmet>
       <div className="bg-white rounded-lg shadow-md p-8 max-w-md w-full">
         <h2 className="text-2xl font-bold mb-4 text-center">Forgot Password</h2>
         <form onSubmit={handleReset}>

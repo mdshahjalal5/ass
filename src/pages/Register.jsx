@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router";
+import { AuthContext } from "../provider/AuthProvider";
 
 const RegisterPage = () => {
+  const { createUser, updateUser } = useContext(AuthContext);
+  const handleRegister = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+
+    const name = form.name.value;
+    const email = form.email.value;
+    const pass = form.password.value;
+    const photoUrl = form.photoUrl.value;
+    createUser(email, pass)
+      .then((user) => {
+        updateUser(name, photoUrl)
+          .then(() => {
+            console.log("Profile updated!");
+            alert("Profile updated!");
+          })
+          .catch((error) => {
+            console.error("Error updating profile:", error);
+          });
+      })
+      .catch();
+  };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <Helmet>
@@ -18,7 +42,7 @@ const RegisterPage = () => {
           <span>All fields are required.</span>
         </div>
 
-        <form>
+        <form onSubmit={handleRegister}>
           {/* Name Field */}
           <div className="mb-4">
             <label
@@ -84,7 +108,7 @@ const RegisterPage = () => {
             <input
               type="password"
               id="confirmPassword"
-              name="confirmPassword"
+              name="photoUrl"
               className="input input-info w-full mt-2"
               placeholder="Enter your photo url"
               required
@@ -97,6 +121,7 @@ const RegisterPage = () => {
                 type="checkbox"
                 id="remember"
                 className="checkbox checkbox-primary"
+                name="check"
               />
               <label htmlFor="remember" className="ml-2 text-sm">
                 Accept our{" "}

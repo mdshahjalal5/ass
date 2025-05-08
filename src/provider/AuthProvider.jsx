@@ -3,8 +3,10 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
+  signOut,
   updateProfile,
 } from "firebase/auth";
 import "aos/dist/aos.css";
@@ -22,6 +24,9 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
+  const resetPassword = (email) => {
+    return sendPasswordResetEmail(auth, email);
+  };
   const createUser = (email, pass) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, pass);
@@ -35,6 +40,10 @@ const AuthProvider = ({ children }) => {
       photoURL: photo,
     });
   };
+
+  const logout = () => {
+    signOut(auth);
+  };
   const authInfo = {
     googleLogin,
     createUser,
@@ -42,6 +51,8 @@ const AuthProvider = ({ children }) => {
     updateUser,
     user,
     loading,
+    logout,
+    resetPassword,
   };
 
   useEffect(() => {

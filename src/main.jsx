@@ -10,7 +10,6 @@ import { HelmetProvider } from "react-helmet-async";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Toaster></Toaster>
-
     <HelmetProvider>
       <AuthProvider>
         <RouterProvider router={router}></RouterProvider>

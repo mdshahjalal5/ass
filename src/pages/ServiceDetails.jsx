@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useLoaderData, useParams } from "react-router-dom";
 
 const ServiceDetail = () => {
@@ -22,6 +23,9 @@ const ServiceDetail = () => {
 
   return (
     <div className="p-6  mx-auto lg:flex  gap-3 sm:gap-12 justify-between mt-10">
+      <Helmet>
+        <title>Service Details || Subscription Box</title>
+      </Helmet>
       {/* details card */}
       <div className="p-4 rounded-lg shadow-xl bg-base-300">
         <img

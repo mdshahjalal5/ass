@@ -9,7 +9,7 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const Nav = () => {
   const [open, setOpen] = useState(false);
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
   console.log(user?.photoURL, "Nav.jsx", 13);
   return (
     <header className="p-4  max-container sticky z-10 top-2">
@@ -34,9 +34,9 @@ const Nav = () => {
                 ) : (
                   <Link to="/my-profile">{user.displayName}</Link>
                 )}
-                <Link to="/auth/login">
+                <div onClick={logout}>
                   <Button label={"Logout"} className={"text-white"} />
-                </Link>
+                </div>
               </div>
             ) : (
               <Link to="/auth/login">
