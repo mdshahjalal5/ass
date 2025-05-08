@@ -1,26 +1,73 @@
-# React + Vite
+# 🎁 Subscription Box Service Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fully responsive single-page application for managing personalized monthly subscription boxes. Built as part of **Assignment-09_category_Lily**, this app includes protected routes, Firebase authentication, and user interaction features like reviews and profile updates.
 
-Currently, two official plugins are available:
+## 🔗 Live Link
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[🔗 View Live Site](https://your-live-site-link.com)
 
-## Expanding the ESLint configuration
+## 📁 GitHub Repository
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+[📂 View on GitHub](https://github.com/your-username/assignment-09-subscription-box)
 
-# chk
+---
 
-Code:
-Name: Md. Shahjalal
-Institute: Uttara town clg
-Department: Math
-Year/semester: 1st year
-S.S.C/O level +Result +Board: gpa 5 dhaka
-H.S.C/A level +Result +Board: gpa 4.86 dhaka
-Present Address: tongi
-Contact number: 01569148491
-Parents name and number : md. kudrat ali, 01989763775
-Facebook id link: https://www.facebook.com/profile.php?id=61556383702555
+## 📌 Project Features
+
+### ✅ Core Features
+
+- 🧾 **User Authentication** with Email/Password and Google Login (Firebase Auth)
+- 🔐 **Protected Routes**: Subscription details and My Profile require authentication
+- 📦 **Subscription Box Cards** with JSON-based service data
+- 📝 **User Reviews**: Leave rating and feedback on subscription services
+- 📄 **My Profile Page** with update feature (display name + photoURL)
+- 📧 **Forget Password**: Fully functional with email reset via Firebase
+- ⚙️ **Dynamic Page Titles** using `react-helmet-async`
+- 🧭 **404 Page** for invalid routes
+- 👁️ **Show/Hide Password Toggle** on Register page
+- 🌐 **Deployed via Netlify** with Firebase Auth domain configuration
+
+---
+
+## 🖼️ Screenshots
+
+> Add screenshots of your app (Home, Profile, Subscription Details, etc.) here for better presentation.
+
+---
+
+## 🧪 Technology Stack
+
+| Tech                    | Usage                              |
+| ----------------------- | ---------------------------------- |
+| React                   | Frontend UI                        |
+| React Router DOM        | Routing                            |
+| Tailwind CSS + DaisyUI  | Styling and components             |
+| Firebase                | Authentication and profile updates |
+| React Helmet Async      | Dynamic page titles                |
+| Swiper                  | Slider in Home                     |
+| AOS (Animate on Scroll) | Animations                         |
+
+---
+
+## 🧩 Pages & Components
+
+- `/` Home (Slider, Subscription Services, Extra Sections)
+- `/login` Login Page (Google & email/password login)
+- `/register` Registration Page (with password validation)
+- `/profile` My Profile (Protected)
+- `/update-profile` Update Profile Info (Protected)
+- `/service/:id` Subscription Details (Protected, with review system)
+- `/auth/forgot-password` Forgot Password
+- `/extra` Extra Protected Route (Bonus content)
+- `*` 404 Page
+
+---
+
+## 🛠️ Installation & Setup
+
+```bash
+git clone https://github.com/your-username/assignment-09-subscription-box
+cd assignment-09-subscription-box
+npm install
+
+```
