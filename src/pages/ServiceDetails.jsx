@@ -22,7 +22,7 @@ const ServiceDetail = () => {
   if (!service) return <p>Service not found</p>;
 
   return (
-    <div className="p-6  mx-auto lg:flex  gap-3 sm:gap-12 justify-between mt-10">
+    <div className="p-6  mx-auto lg:flex  gap-3 sm:gap-12 justify-between mt-10 min-h-[70vh] items-center">
       <Helmet>
         <title>Service Details || Subscription Box</title>
       </Helmet>
@@ -41,7 +41,7 @@ const ServiceDetail = () => {
       </div>
 
       {/* reviews card */}
-      <div className="bg-base-300 shadow-xl p-4 rounded-lg max-lg:mt-7">
+      <div className="bg-base-300 shadow-xl p-4 rounded-lg max-lg:mt-7 h-full py-14">
         <div className="mt-6">
           <h2 className="text-xl mb-2">Leave a Review</h2>
           <input

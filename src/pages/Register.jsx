@@ -1,11 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../provider/AuthProvider";
+import { EyeIcon, EyeOffIcon } from "lucide-react";
 
 const RegisterPage = () => {
   const { createUser, updateUser, googleLogin } = useContext(AuthContext);
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const [error, setError] = useState("");
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -104,21 +109,28 @@ const RegisterPage = () => {
           </div>
 
           {/* Password Field */}
-          <div className="mb-4">
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Password
-            </label>
+          <label
+            htmlFor="password"
+            className="block text-sm font-medium text-gray-700 mb-2"
+          >
+            Password
+          </label>
+
+          <div className="flex items-center mb-4 input input-info w-full">
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               id="password"
               name="password"
-              className="input input-info w-full mt-2"
               placeholder="Enter a strong password"
               required
             />
+            <Link onClick={() => setShowPassword(!showPassword)} to="">
+              {showPassword ? (
+                <EyeIcon className="w-5 h-5 text-gray-500 hover:text-primary" />
+              ) : (
+                <EyeOffIcon className="w-5 h-5 text-gray-500 hover:text-primary" />
+              )}
+            </Link>
           </div>
 
           {/* Photo URL Field */}
@@ -159,7 +171,7 @@ const RegisterPage = () => {
         {/* Already have an account */}
         <div className="mt-4 text-center">
           <p className="text-sm">
-            Already have an account?{" "}
+            Already have an account?
             <Link to="/auth/login" className="text-primary">
               Log In
             </Link>

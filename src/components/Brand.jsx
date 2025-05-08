@@ -5,7 +5,11 @@ const Brand = ({ className }) => {
   return (
     <>
       <div className={`flex items-center gap-2 ${className || ""}`}>
-        <img src={logo} width={35} />
+        <img
+          src={"https://i.ibb.co.com/wZsFdq7Z/profile.jpg"}
+          width={25}
+          className="rounded-full"
+        />
         <h1 className=" max-sm:text-xl text-3xl font-semibold">
           <Link to="/">
             <span className="font-courgette text-sky-400">Subscription</span>

@@ -1,9 +1,11 @@
 import React from "react";
 import { boxes } from "../constant";
+import { Helmet } from "react-helmet-async";
 
 const TermsAndConditions = () => {
   return (
     <div className="p-6 max-w-5xl mx-auto bg-white">
+      <Helmet>title="Terms & Conditions || Subscription Box"</Helmet>
       <h1 className="text-4xl font-bold text-primary mb-6 text-center">
         Terms & Conditions
       </h1>

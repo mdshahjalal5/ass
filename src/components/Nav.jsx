@@ -9,7 +9,7 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const Nav = () => {
   const [open, setOpen] = useState(false);
-  const { user, logout } = useContext(AuthContext);
+  const { user, logout, loading } = useContext(AuthContext);
   console.log(user?.photoURL, "Nav.jsx", 13);
   return (
     <header className="p-4  max-container sticky z-10 top-2">
@@ -22,13 +22,15 @@ const Nav = () => {
 
         <div className="relative">
           <div className="max-md:hidden">
-            {user ? (
+            {loading ? (
+              <span className="text-black">Loading...</span>
+            ) : user ? (
               <div className="flex gap-2 items-center">
                 {user.photoURL ? (
                   <Link title={user.displayName} to="/my-profile">
                     <img
                       src={user.photoURL}
-                      className="h-10 w-10 rounded-full  border p-[2px]"
+                      className="h-10 w-10 rounded-full border p-[2px]"
                     />
                   </Link>
                 ) : (
@@ -46,7 +48,6 @@ const Nav = () => {
           </div>
           <div onClick={() => setOpen(!open)} className="md:hidden ">
             <button>
-              {/* <AlignJustify /> */}
               {open ? (
                 <span className="text-2xl font-semibold p-1">X</span>
               ) : (

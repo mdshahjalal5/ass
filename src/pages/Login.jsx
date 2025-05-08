@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
@@ -8,6 +8,8 @@ const LoginPage = () => {
   const { googleLogin, login } = useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,7 +27,10 @@ const LoginPage = () => {
       await login(email, password);
       setTimeout(() => {
         toast.success("Logged in successfully!");
-        navigate("/"), 1500;
+        navigate(from, {
+          replace: true,
+        }),
+          1500;
       });
     } catch (err) {
       setError(err.message);
