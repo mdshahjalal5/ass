@@ -1,10 +1,3 @@
-import {
-  successDoctor,
-  successPatients,
-  successReview,
-  successStaffs,
-} from "./assets";
-
 const links = [
   {
     label: "Home",
@@ -16,29 +9,6 @@ const links = [
   },
 ];
 
-const servicesSummary = [
-  {
-    label: "Total Doctors",
-    count: 199,
-    logo: successDoctor,
-  },
-
-  {
-    label: "Patients",
-    count: 199,
-    logo: successPatients,
-  },
-  {
-    label: "Reviews",
-    count: 130,
-    logo: successReview,
-  },
-  {
-    label: "Staffs",
-    count: 309,
-    logo: successStaffs,
-  },
-];
 const blogs = [
   {
     question: "What is useState and how does it work in React?",
@@ -292,4 +262,4 @@ const boxes = [
     number_of_reviews: 146,
   },
 ];
-export { links, servicesSummary, blogs, boxes };
+export { links, blogs, boxes };

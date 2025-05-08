@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router";
+import { AuthContext } from "../provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const LoginPage = () => {
+  const { googleLogin } = useContext(AuthContext);
   return (
     <div className="min-h-screen flex items-center justify-center bg-base-200">
+      <Helmet>
+        <title>Login || Subscription Box</title>
+      </Helmet>
       <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
         <h2 className="text-3xl font-bold text-center text-primary mb-6">
           Login
@@ -61,7 +67,18 @@ const LoginPage = () => {
             Log In
           </button>
         </form>
-        <button className="btn btn-primary w-full py-2 text-white mt-3">
+        <button
+          onClick={() => {
+            googleLogin()
+              .then((user) => {
+                alert("Google login success");
+              })
+              .catch((err) => {
+                console.log(`err`, err);
+              });
+          }}
+          className="btn btn-primary w-full py-2 text-white mt-3"
+        >
           Sign up with Google
         </button>
 
