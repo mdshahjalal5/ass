@@ -43,7 +43,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-base-200">
+    <div className="min-h-[90vh] flex items-center justify-center bg-base-200">
       <Helmet>
         <title>Forgot Password || Subscription Box</title>
       </Helmet>

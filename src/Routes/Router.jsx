@@ -10,6 +10,7 @@ import ServiceDetail from "../pages/ServiceDetails";
 import ForgotPassword from "../pages/ForgotPassword";
 import MyProfile from "../pages/MyProfile";
 import UpdateProfile from "../pages/UpdateProfile";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -24,7 +25,11 @@ export const router = createBrowserRouter([
       {
         path: "/services/:id",
         loader: () => fetch("/data2.json"),
-        element: <ServiceDetail />,
+        element: (
+          <PrivateRoute>
+            <ServiceDetail />
+          </PrivateRoute>
+        ),
       },
       {
         path: "terms",
@@ -32,11 +37,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "my-profile",
-        Component: MyProfile,
+        element: (
+          <PrivateRoute>
+            <MyProfile />
+          </PrivateRoute>
+        ),
       },
       {
         path: "update-profile",
-        Component: UpdateProfile,
+        element: (
+          <PrivateRoute>
+            <UpdateProfile />
+          </PrivateRoute>
+        ),
       },
     ],
   },
@@ -54,7 +67,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "forgot-password",
-        Component: ForgotPassword,
+        element: (
+          <PrivateRoute>
+            <ForgotPassword />
+          </PrivateRoute>
+        ),
       },
     ],
   },

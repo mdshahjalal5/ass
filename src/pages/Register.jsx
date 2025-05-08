@@ -1,32 +1,61 @@
 import React, { useContext } from "react";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../provider/AuthProvider";
 
 const RegisterPage = () => {
-  const { createUser, updateUser } = useContext(AuthContext);
+  const { createUser, updateUser, googleLogin } = useContext(AuthContext);
+
   const handleRegister = (e) => {
     e.preventDefault();
-
     const form = e.target;
 
     const name = form.name.value;
     const email = form.email.value;
-    const pass = form.password.value;
+    const password = form.password.value;
     const photoUrl = form.photoUrl.value;
-    createUser(email, pass)
-      .then((user) => {
+
+    // Password validation
+    const upperCase = /[A-Z]/.test(password);
+    const lowerCase = /[a-z]/.test(password);
+    const minLength = password.length >= 6;
+
+    if (!upperCase || !lowerCase || !minLength) {
+      Swal.fire({
+        icon: "error",
+        title: "Password Error",
+        text: "Password must include at least one uppercase letter, one lowercase letter, and be at least 6 characters long.",
+      });
+      return;
+    }
+
+    createUser(email, password)
+      .then(() => {
         updateUser(name, photoUrl)
           .then(() => {
-            console.log("Profile updated!");
-            alert("Profile updated!");
+            Swal.fire("Success", "Account created successfully!", "success");
+            form.reset();
           })
           .catch((error) => {
-            console.error("Error updating profile:", error);
+            Swal.fire("Error", error.message, "error");
           });
       })
-      .catch();
+      .catch((error) => {
+        Swal.fire("Error", error.message, "error");
+      });
   };
+
+  const handleGoogleSignup = () => {
+    googleLogin()
+      .then(() => {
+        Swal.fire("Success", "Logged in with Google!", "success");
+      })
+      .catch((err) => {
+        Swal.fire("Error", err.message, "error");
+      });
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <Helmet>
@@ -36,11 +65,6 @@ const RegisterPage = () => {
         <h2 className="text-3xl font-bold text-center text-primary mb-6">
           Create Account
         </h2>
-
-        {/* Optional Error Message */}
-        <div className="alert alert-error mb-4 hidden">
-          <span>All fields are required.</span>
-        </div>
 
         <form onSubmit={handleRegister}>
           {/* Name Field */}
@@ -97,42 +121,25 @@ const RegisterPage = () => {
             />
           </div>
 
-          {/* Confirm Password Field */}
+          {/* Photo URL Field */}
           <div className="mb-6">
             <label
-              htmlFor="confirmPassword"
+              htmlFor="photoUrl"
               className="block text-sm font-medium text-gray-700"
             >
-              Photo Url
+              Photo URL
             </label>
             <input
-              type="password"
-              id="confirmPassword"
+              type="url"
+              id="photoUrl"
               name="photoUrl"
               className="input input-info w-full mt-2"
-              placeholder="Enter your photo url"
+              placeholder="Enter your photo URL"
               required
             />
           </div>
 
-          <div className="mb-6 flex justify-between items-center">
-            <div className="flex items-center">
-              <input
-                type="checkbox"
-                id="remember"
-                className="checkbox checkbox-primary"
-                name="check"
-              />
-              <label htmlFor="remember" className="ml-2 text-sm">
-                Accept our{" "}
-                <Link className="underline" to="/terms">
-                  terms and conditions
-                </Link>
-              </label>
-            </div>
-          </div>
           {/* Submit Button */}
-
           <button
             type="submit"
             className="btn btn-primary w-full py-2 text-white"
@@ -140,7 +147,12 @@ const RegisterPage = () => {
             Register
           </button>
         </form>
-        <button className="btn btn-primary w-full py-2 text-white mt-3">
+
+        {/* Google Signup */}
+        <button
+          onClick={handleGoogleSignup}
+          className="btn btn-outline btn-primary w-full py-2 mt-3"
+        >
           Sign up with Google
         </button>
 
