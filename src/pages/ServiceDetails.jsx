@@ -27,21 +27,23 @@ const ServiceDetail = () => {
         <title>Service Details || Subscription Box</title>
       </Helmet>
       {/* details card */}
-      <div className="p-4 rounded-lg shadow-xl bg-base-300">
+      <div className="p-4 rounded-lg shadow-xl bg-base-300 flex-1">
         <img
           src={service.thumbnail}
           alt={service.name}
-          className="w-full h-60 object-cover"
+          className="w-full h-[300px] object-cover rounded-lg"
         />
-        <h1 className="text-2xl font-bold mt-4">{service.name}</h1>
-        <p>{service.description}</p>
+        <h1 className="text-2xl font-bold mt-4 text-purple-400">
+          {service.name}
+        </h1>
+        <p className="text-gray-500">{service.description}</p>
         <p className="mt-2">
           {service.techCategory} | {service.price} / {service.frequency}
         </p>
       </div>
 
       {/* reviews card */}
-      <div className="bg-base-300 shadow-xl p-4 rounded-lg max-lg:mt-7 h-full py-14">
+      <div className="bg-base-300 shadow-xl p-4 rounded-lg max-lg:mt-7 h-full py-22 flex-1">
         <div className="mt-6">
           <h2 className="text-xl mb-2">Leave a Review</h2>
           <input
